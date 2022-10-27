@@ -25,8 +25,8 @@
             <td th:text="${product.price}"></td>
             <td th:text="${product.quantity}"></td>
             <td>
-                <form class="w3-container" th:action="@{/updateUser/{id}(id=${product.id})}"  method="post">
-                        <input class="w3-input w3-border w3-sand" name="quantity" type="text" th:value="*{quantity}"></p>
+                <form class="w3-container" th:action="@{/updateProduct/{id}(id=${product.id})}"  method="post">
+                        <input class="w3-input w3-border w3-sand" name="quantity" type="text"></p>
                         <button class="w3-btn w3-brown">Buy</button></p>
                 </form>
 

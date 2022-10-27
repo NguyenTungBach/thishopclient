@@ -75,9 +75,10 @@ public class ProductController {
     @RequestMapping(value = "/updateProduct/{id}",method = RequestMethod.POST)
     public String updateUser(Model model, @PathVariable int id,@RequestParam int quantity) {
         Client client = createJerseyRestClient();
-        WebTarget target = client.target(REST_API_PRODUCT_BUY_BY_ID + id);
-
-        return "redirect:getProducts";
+        WebTarget target = client.target(REST_API_PRODUCT_BUY_BY_ID + id +"?quantity=" + quantity);
+        target.request(MediaType.APPLICATION_JSON_TYPE)
+                .post(Entity.entity(null, MediaType.APPLICATION_JSON));
+        return "redirect:/getProducts";
     }
 
     private static String convertToJson(Product product) {
